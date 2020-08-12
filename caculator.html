@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>計數器</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        
+<div id="app">
+{{message}}
+<h1>{{ans}}</h1>
+<button v-on:click="showNum('1')">1</button>
+<button v-on:click="showNum('2')">2</button>
+<button v-on:click="showNum('3')">3</button>
+
+<p><button v-on:click="showNum('4')">4</button>
+<button v-on:click="showNum('5')">5</button>
+<button v-on:click="showNum('6')">6</button></p>
+
+<p><button v-on:click="showNum('7')">7</button>
+    <button v-on:click="showNum('8')">8</button>
+    <button v-on:click="showNum('9')">9</button>
+    <button v-on:click="RESET">RESET</button>
+</p>
+<p><button v-on:click="plusN">+</button>
+    <button v-on:click="minusN">-</button>
+    <button v-on:click="SUM">=</button>
+
+</p>
+</div>
+  
+<script>
+    var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'COUNTER',
+    ans:0,
+    step:1,
+  },
+  methods:{
+plusN: function(){
+    this.ans += '+';
+    console.log("+1");
+},
+minusN: function(){
+    this.ans -='-';
+    console.log("-1");
+},
+RESET: function (){
+    this.ans = 0;
+    console.log("0");
+},
+showNum: function(n){
+    this.ans += n;
+},
+SUM: function(){
+    this.ans = eval(this.ans);
+    console.log("eval(this.ans)")
+}
+  }
+ 
+  
+})
+</script>
+    </body>
+</html>
